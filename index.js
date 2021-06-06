@@ -23,22 +23,22 @@ app.get('/', (req, res) => {
 
 // Socket IO
 io.on('connection', function (socket) {
-    var link
 
     // 1
-    link = 'labibweb.my.id'
+    var link1 = 'labibweb.my.id'
 
-    check1(link)
+    check1(link1)
 
     function check1(host) {
-        Activeping.sys.probe(host, function latency(isAlive) {
+        Activeping.sys.probe(host, function (isAlive) {
             var msg
 
             if (isAlive) {
                 msg = 'active'
 
-                ping.system.ping(link, function (latency) {
+                ping.system.ping(link1, function (latency) {
                     socket.emit('ping1', ' - ' + latency + ' ms')
+                    console.log(' - ' + latency + ' ms')
                 });
 
             } else {
@@ -48,22 +48,23 @@ io.on('connection', function (socket) {
 
             socket.emit('status1', msg)
             socket.emit('status1_class', msg)
+            console.log(msg)
         })
     };
 
     // 2
-    link = 'wallet.labibweb.my.id'
+    var link2 = 'wallet.labibweb.my.id'
 
-    check2(link)
+    check2(link2)
 
     function check2(host) {
-        Activeping.sys.probe(host, function latency(isAlive) {
+        Activeping.sys.probe(host, function (isAlive) {
             var msg
 
             if (isAlive) {
                 msg = 'active'
 
-                ping.system.ping(link, function (latency) {
+                ping.system.ping(link2, function (latency) {
                     socket.emit('ping2', ' - ' + latency + ' ms')
                 });
 
@@ -78,18 +79,18 @@ io.on('connection', function (socket) {
     };
 
     // 3
-    link = 'openapi.labibweb.my.id'
+    var link3 = 'openapi.labibweb.my.id'
 
-    check3(link)
+    check3(link3)
 
     function check3(host) {
-        Activeping.sys.probe(host, function latency(isAlive) {
+        Activeping.sys.probe(host, function (isAlive) {
             var msg
 
             if (isAlive) {
                 msg = 'active'
 
-                ping.system.ping(link, function (latency) {
+                ping.system.ping(link3, function (latency) {
                     socket.emit('ping3', ' - ' + latency + ' ms')
                 });
 
@@ -104,18 +105,18 @@ io.on('connection', function (socket) {
     };
 
     // 4
-    link = 'request.labibweb.my.id'
+    var link4 = 'request.labibweb.my.id'
 
-    check4(link)
+    check4(link4)
 
     function check4(host) {
-        Activeping.sys.probe(host, function latency(isAlive) {
+        Activeping.sys.probe(host, function (isAlive) {
             var msg
 
             if (isAlive) {
                 msg = 'active'
 
-                ping.system.ping(link, function (latency) {
+                ping.system.ping(link4, function (latency) {
                     socket.emit('ping4', ' - ' + latency + ' ms')
                 });
 
@@ -130,18 +131,18 @@ io.on('connection', function (socket) {
     };
 
     // 5
-    link = '2embed.ru'
+    var link5 = '2embed.ru'
 
-    check5(link)
+    check5(link5)
 
     function check5(host) {
-        Activeping.sys.probe(host, function latency(isAlive) {
+        Activeping.sys.probe(host, function (isAlive) {
             var msg
 
             if (isAlive) {
                 msg = 'active'
 
-                ping.system.ping(link, function (latency) {
+                ping.system.ping(link5, function (latency) {
                     socket.emit('ping5', ' - ' + latency + ' ms')
                 });
 
@@ -156,18 +157,18 @@ io.on('connection', function (socket) {
     };
 
     // 6
-    link = '123player.4u.ms'
+    var link6 = '123player.4u.ms'
 
-    check6(link)
+    check6(link6)
 
     function check6(host) {
-        Activeping.sys.probe(host, function latency(isAlive) {
+        Activeping.sys.probe(host, function (isAlive) {
             var msg
 
             if (isAlive) {
                 msg = 'active'
 
-                ping.system.ping(link, function (latency) {
+                ping.system.ping(link6, function (latency) {
                     socket.emit('ping6', ' - ' + latency + ' ms')
                 });
 
@@ -182,18 +183,18 @@ io.on('connection', function (socket) {
     };
 
     // 7
-    link = 'fvs.io'
+    var link7 = 'fvs.io'
 
-    check7(link)
+    check7(link7)
 
     function check7(host) {
-        Activeping.sys.probe(host, function latency(isAlive) {
+        Activeping.sys.probe(host, function (isAlive) {
             var msg
 
             if (isAlive) {
                 msg = 'active'
 
-                ping.system.ping(link, function (latency) {
+                ping.system.ping(link7, function (latency) {
                     socket.emit('ping7', ' - ' + latency + ' ms')
                 });
 
@@ -204,6 +205,58 @@ io.on('connection', function (socket) {
 
             socket.emit('status7', msg)
             socket.emit('status7_class', msg)
+        })
+    };
+
+    // 8
+    var link8 = 'fembed.com'
+
+    check8(link8)
+
+    function check8(host) {
+        Activeping.sys.probe(host, function (isAlive) {
+            var msg
+
+            if (isAlive) {
+                msg = 'active'
+
+                ping.system.ping(link8, function (latency) {
+                    socket.emit('ping8', ' - ' + latency + ' ms')
+                });
+
+            } else {
+                msg = 'unactive'
+                socket.emit('ping8', '')
+            }
+
+            socket.emit('status8', msg)
+            socket.emit('status8_class', msg)
+        })
+    };
+
+    // 9
+    var link9 = 'uptostream.com'
+
+    check9(link9)
+
+    function check9(host) {
+        Activeping.sys.probe(host, function (isAlive) {
+            var msg
+
+            if (isAlive) {
+                msg = 'active'
+
+                ping.system.ping(link9, function (latency) {
+                    socket.emit('ping9', ' - ' + latency + ' ms')
+                });
+
+            } else {
+                msg = 'unactive'
+                socket.emit('ping9', '')
+            }
+
+            socket.emit('status9', msg)
+            socket.emit('status9_class', msg)
         })
     };
 
