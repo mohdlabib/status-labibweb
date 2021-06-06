@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 io.on('connection', function (socket) {
 
     // 1
-    var link1 = 'labibweb.my.id'
+    var link1 = 'www.labibweb.my.id'
 
     check1(link1)
 
