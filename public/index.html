@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css"
+        integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <title>Server Status 📡</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Muli:300,700&display=swap");
+
+        * {
+            text-decoration: none !important;
+        }
+
+        body {
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        .color-orange {
+            color: orange;
+        }
+
+        .card {
+            border-radius: 18px;
+            cursor: pointer;
+            -webkit-transition: all 0.2s;
+            transition: all 0.2s;
+            border: 4px solid transparent;
+            -webkit-box-shadow: 0 0.13rem 1rem rgba(0, 0, 0, 0.075) !important;
+            box-shadow: 0 0.13rem 1rem rgba(0, 0, 0, 0.075) !important;
+        }
+
+        .card:hover {
+            margin-top: -5px;
+        }
+
+        .active {
+            color: green;
+        }
+
+        .unactive {
+            color: red;
+        }
+
+        .link {
+            font-size: 15px;
+        }
+
+        .floating-text {
+            background-color: #ffd900;
+            border-radius: 10px 10px 0 0;
+            color: #fff;
+            font-family: 'Muli';
+            padding: 7px 15px;
+            position: fixed;
+            bottom: 0;
+            left: 100px;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 998;
+        }
+
+        .floating-text a {
+            color: #FF7500;
+            text-decoration: none;
+        }
+
+        .container-coffee {
+            margin-top: 150px;
+        }
+
+        .container-coffee .card {
+            border-radius: 18px;
+            border: none;
+        }
+
+        .container-coffee .card .card-header {
+            border-top-left-radius: 18px;
+            border-top-right-radius: 18px;
+            background-color: #FF7500;
+            color: white;
+        }
+
+        .container-coffee .btn-coffee {
+            margin-top: 25px;
+        }
+
+        .container-coffee .btn-coffee a {
+            margin-left: 9px;
+            margin-right: 9px;
+            border-radius: 18px;
+            padding: 10px 20px;
+        }
+
+        .container-coffee .btn-coffee a .icon {
+            width: 19px;
+        }
+
+        .container-coffee .btn-coffee a.Crypto {
+            background-color: #ffa600;
+            color: white;
+        }
+
+        .container-coffee .btn-coffee a.Saweria {
+            background-color: #008cff;
+            color: white;
+        }
+
+        .container-coffee .form-cryto {
+            border-radius: 50px;
+        }
+
+        .container-coffee .input-group {
+            width: 320px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container-coffee .input-group {
+                width: 100%;
+            }
+        }
+
+        .container-coffee .label-cryto {
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+
+        .container-coffee .btn-cryto {
+            border-radius: 13px;
+            background-color: #ffa600;
+            color: white;
+        }
+
+        .coffee {
+            width: 130px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-5">
+        <div class="text-center">
+            <h2>Server <b class="color-orange">Status <i class="fas fa-network-wired"></i></b></h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mx-auto my-5" data-aos="fade-up" data-aos-duration="1000">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <p>
+                                    Status :&nbsp; <span id="status_1"></span><span id="ping1"></span><br>
+                                    <a class="link" href="https://labibweb.my.id">labibweb.my.id</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <p>
+                                    Status :&nbsp; <span id="status_2"></span><span id="ping2"></span><br>
+                                    <a class="link" href="https://wallet.labibweb.my.id">wallet.labibweb.my.id</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <p>
+                                    Status :&nbsp; <span id="status_3"></span><span id="ping3"></span><br>
+                                    <a class="link" href="https://openapi.labibweb.my.id">openapi.labibweb.my.id</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <p>
+                                    Status :&nbsp; <span id="status_4"></span><span id="ping4"></span><br>
+                                    <a class="link" href="https://request.labibweb.my.id">request.labibweb.my.id</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <h5 class="my-4"><b class="color-orange">video </b><i class="fas fa-photo-video"></i></h5>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <p>
+                                    Status :&nbsp; <span id="status_5"></span><span id="ping5"></span><br>
+                                    Server 1
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <p>
+                                    Status :&nbsp; <span id="status_6"></span><span id="ping6"></span><br>
+                                    Server 2
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <p>
+                                    Status :&nbsp; <span id="status_7"></span><span id="ping7"></span><br>
+                                    Server 3
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <p>
+                                    Status :&nbsp; <span id="status_8"></span><span id="ping8"></span><br>
+                                    Server Indo 1
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <p>
+                                    Status :&nbsp; <span id="status_9"></span><span id="ping9"></span><br>
+                                    Server Indo 2
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Donate  -->
+    <div class="floating-text">
+        Buy me <a href="https://labibweb.my.id/donate" target="_blank">a coffee <i class="fas fa-coffee"></i></a>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"
+        integrity="sha512-RmCE+nEdKZ45TpbCJgvYvfEDz3XaiGmTTJl6GfyITW3fouks4lNTOkoMXWJ9WA6aQO+3FV8cjA6fvTosOgbCrg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+        integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    <script src="https://cdn.socket.io/4.1.1/socket.io.min.js"
+        integrity="sha384-cdrFIqe3RasCMNE0jeFG9xJHog/tgOVC1E9Lzve8LQN1g5WUHo0Kvk1mawWjxX7a" crossorigin="anonymous">
+    </script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        $(document).ready(function () {
+            var socket = io()
+
+            // one
+            socket.on('ping1', function (msg) {
+                $("#ping1").text(msg)
+            })
+
+            socket.on('status1', function (msg) {
+                $("#status_1").text(msg)
+            })
+
+            socket.on('status1_class', function (msg) {
+                $("#status_1").addClass(msg)
+            })
+
+            // two
+            socket.on('ping2', function (msg) {
+                $("#ping2").text(msg)
+            })
+
+            socket.on('status2', function (msg) {
+                $("#status_2").text(msg)
+            })
+
+            socket.on('status2_class', function (msg) {
+                $("#status_2").addClass(msg)
+            })
+
+            // three
+            socket.on('ping3', function (msg) {
+                $("#ping3").text(msg)
+            })
+
+            socket.on('status3', function (msg) {
+                $("#status_3").text(msg)
+            })
+
+            socket.on('status3_class', function (msg) {
+                $("#status_3").addClass(msg)
+            })
+
+            // four
+            socket.on('ping4', function (msg) {
+                $("#ping4").text(msg)
+            })
+
+            socket.on('status4', function (msg) {
+                $("#status_4").text(msg)
+            })
+
+            socket.on('status4_class', function (msg) {
+                $("#status_4").addClass(msg)
+            })
+
+            // five
+            socket.on('ping5', function (msg) {
+                $("#ping5").text(msg)
+            })
+
+            socket.on('status5', function (msg) {
+                $("#status_5").text(msg)
+            })
+
+            socket.on('status5_class', function (msg) {
+                $("#status_5").addClass(msg)
+            })
+
+            // six
+            socket.on('ping6', function (msg) {
+                $("#ping6").text(msg)
+            })
+
+            socket.on('status6', function (msg) {
+                $("#status_6").text(msg)
+            })
+
+            socket.on('status6_class', function (msg) {
+                $("#status_6").addClass(msg)
+            })
+
+            // seven
+            socket.on('ping7', function (msg) {
+                $("#ping7").text(msg)
+            })
+
+            socket.on('status7', function (msg) {
+                $("#status_7").text(msg)
+            })
+
+            socket.on('status7_class', function (msg) {
+                $("#status_7").addClass(msg)
+            })
+
+            // eight
+            socket.on('ping8', function (msg) {
+                $("#ping8").text(msg)
+            })
+
+            socket.on('status8', function (msg) {
+                $("#status_8").text(msg)
+            })
+
+            socket.on('status8_class', function (msg) {
+                $("#status_8").addClass(msg)
+            })
+
+            // nine
+            socket.on('ping9', function (msg) {
+                $("#ping9").text(msg)
+            })
+
+            socket.on('status9', function (msg) {
+                $("#status_9").text(msg)
+            })
+
+            socket.on('status9_class', function (msg) {
+                $("#status_9").addClass(msg)
+            })
+
+        })
+    </script>
+</body>
+
+</html>
