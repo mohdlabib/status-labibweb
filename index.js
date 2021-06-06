@@ -38,6 +38,7 @@ io.on('connection', function (socket) {
 
                 ping.system.ping(link1, function (latency) {
                     socket.emit('ping1', ' - ' + latency + ' ms')
+                    console.log(' - ' + latency + ' ms')
                 });
 
             } else {
@@ -47,6 +48,7 @@ io.on('connection', function (socket) {
 
             socket.emit('status1', msg)
             socket.emit('status1_class', msg)
+            console.log(msg)
         })
     };
 
