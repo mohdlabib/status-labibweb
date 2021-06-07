@@ -157,7 +157,7 @@
                         <div class="card mb-4">
                             <div class="card-body">
                                 <p>
-                                    Status :&nbsp; <span id="status_1"></span><span id="ping1"></span><br>
+                                    Status :&nbsp; <span id="status_1"></span><br>
                                     <a class="link" href="https://labibweb.my.id">labibweb.my.id</a>
                                 </p>
                             </div>
@@ -167,7 +167,7 @@
                         <div class="card mb-4">
                             <div class="card-body">
                                 <p>
-                                    Status :&nbsp; <span id="status_2"></span><span id="ping2"></span><br>
+                                    Status :&nbsp; <span id="status_2"></span><br>
                                     <a class="link" href="https://wallet.labibweb.my.id">wallet.labibweb.my.id</a>
                                 </p>
                             </div>
@@ -177,7 +177,7 @@
                         <div class="card mb-4">
                             <div class="card-body">
                                 <p>
-                                    Status :&nbsp; <span id="status_3"></span><span id="ping3"></span><br>
+                                    Status :&nbsp; <span id="status_3"></span><br>
                                     <a class="link" href="https://openapi.labibweb.my.id">openapi.labibweb.my.id</a>
                                 </p>
                             </div>
@@ -187,7 +187,7 @@
                         <div class="card mb-4">
                             <div class="card-body">
                                 <p>
-                                    Status :&nbsp; <span id="status_4"></span><span id="ping4"></span><br>
+                                    Status :&nbsp; <span id="status_4"></span><br>
                                     <a class="link" href="https://request.labibweb.my.id">request.labibweb.my.id</a>
                                 </p>
                             </div>
@@ -234,7 +234,17 @@
                             <div class="card-body">
                                 <p>
                                     Status :&nbsp; <span id="status_8"></span><span id="ping8"></span><br>
-                                    Server Indo
+                                    Server Indo 1
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <p>
+                                    Status :&nbsp; <span id="status_9"></span><span id="ping9"></span><br>
+                                    Server Indo 2
                                 </p>
                             </div>
                         </div>
@@ -275,10 +285,6 @@
             var socket = io()
 
             // one
-            socket.on('ping1', function (msg) {
-                $("#ping1").text(msg)
-            })
-
             socket.on('status1', function (msg) {
                 $("#status_1").text(msg)
             })
@@ -288,10 +294,6 @@
             })
 
             // two
-            socket.on('ping2', function (msg) {
-                $("#ping2").text(msg)
-            })
-
             socket.on('status2', function (msg) {
                 $("#status_2").text(msg)
             })
@@ -301,10 +303,6 @@
             })
 
             // three
-            socket.on('ping3', function (msg) {
-                $("#ping3").text(msg)
-            })
-
             socket.on('status3', function (msg) {
                 $("#status_3").text(msg)
             })
@@ -314,10 +312,6 @@
             })
 
             // four
-            socket.on('ping4', function (msg) {
-                $("#ping4").text(msg)
-            })
-
             socket.on('status4', function (msg) {
                 $("#status_4").text(msg)
             })
@@ -366,16 +360,29 @@
             })
 
             // eight
-            socket.on('ping1', function (msg) {
+            socket.on('ping8', function (msg) {
                 $("#ping8").text(msg)
             })
 
-            socket.on('status1', function (msg) {
+            socket.on('status8', function (msg) {
                 $("#status_8").text(msg)
             })
 
-            socket.on('status1_class', function (msg) {
+            socket.on('status8_class', function (msg) {
                 $("#status_8").addClass(msg)
+            })
+
+            // nine
+            socket.on('ping9', function (msg) {
+                $("#ping9").text(msg)
+            })
+
+            socket.on('status9', function (msg) {
+                $("#status_9").text(msg)
+            })
+
+            socket.on('status9_class', function (msg) {
+                $("#status_9").addClass(msg)
             })
 
         })
