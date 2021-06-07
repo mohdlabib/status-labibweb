@@ -35,20 +35,12 @@ io.on('connection', function (socket) {
 
             if (isAlive) {
                 msg = 'active'
-
-                ping.system.ping(link1, function (latency) {
-                    socket.emit('ping1', ' - ' + latency + ' ms')
-                    console.log(' - ' + latency + ' ms')
-                });
-
             } else {
                 msg = 'unactive'
-                socket.emit('ping1', '')
             }
 
             socket.emit('status1', msg)
             socket.emit('status1_class', msg)
-            console.log(msg)
         })
     };
 
@@ -63,14 +55,8 @@ io.on('connection', function (socket) {
 
             if (isAlive) {
                 msg = 'active'
-
-                ping.system.ping(link2, function (latency) {
-                    socket.emit('ping2', ' - ' + latency + ' ms')
-                });
-
             } else {
                 msg = 'unactive'
-                socket.emit('ping2', '')
             }
 
             socket.emit('status2', msg)
@@ -89,14 +75,8 @@ io.on('connection', function (socket) {
 
             if (isAlive) {
                 msg = 'active'
-
-                ping.system.ping(link3, function (latency) {
-                    socket.emit('ping3', ' - ' + latency + ' ms')
-                });
-
             } else {
                 msg = 'unactive'
-                socket.emit('ping3', '')
             }
 
             socket.emit('status3', msg)
@@ -115,14 +95,8 @@ io.on('connection', function (socket) {
 
             if (isAlive) {
                 msg = 'active'
-
-                ping.system.ping(link4, function (latency) {
-                    socket.emit('ping4', ' - ' + latency + ' ms')
-                });
-
             } else {
                 msg = 'unactive'
-                socket.emit('ping4', '')
             }
 
             socket.emit('status4', msg)
